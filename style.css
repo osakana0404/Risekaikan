@@ -333,3 +333,12 @@ html, body {
   touch-action: pan-y;  /* 指の操作を縦方向だけに限定 */
 }
 
+/* ギャラリーだけ横スクロールOK */
+.scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;  /* ← この行がポイント！ */
+}
+
+
