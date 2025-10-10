@@ -324,21 +324,44 @@ header h1::before {
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
-
 /* スクロールバー非表示（任意） */ .scroll-wrapper::-webkit-scrollbar { display: none; }
-
 
 html, body {
   overflow-x: hidden;   /* 横スクロール禁止 */
   touch-action: pan-y;  /* 指の操作を縦方向だけに限定 */
 }
-
-/* ギャラリーだけ横スクロールOK */
 .scroll-wrapper {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;  /* ← この行がポイント！ */
+  touch-action: pan-x; /* 横だけスワイプOK */
 }
 
+/* ===== 本文の文字サイズ調整 ===== */
+main p {
+  font-size: 0.8rem; /* ← 70％くらいの小ささ */
+  line-height: 1.6;
+}
+/* ===== ギャラリーを少し小さく ===== */
+.scroll-inner img {
+  height: 35vh; /* ← もともと50vhだったところを小さめに */
+  max-width: 80%; /* ← 幅を少し絞る */
+  object-fit: cover;
+}
+/* ===== ギャラリー下のドットインジケーター ===== */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #333;
+}
 
